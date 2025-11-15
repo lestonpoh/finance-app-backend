@@ -1,0 +1,11 @@
+spring:
+  profile:
+    active: local
+
+ibkr:
+  urls:
+    generateReport: "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest"
+    getReport: "https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement"
+  secrets:
+    flexToken: ""
+    flexQueryId: ""
