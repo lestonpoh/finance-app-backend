@@ -22,6 +22,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
 
+    // @Override
+    // protected boolean shouldNotFilter(HttpServletRequest request) {
+    // String path = request.getRequestURI();
+    // return path.equals("/api/v1/auth/login") ||
+    // path.equals("/api/v1/auth/register");
+    // }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
             HttpServletResponse response,
@@ -37,7 +44,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 userId = jwtUtil.extractUserId(token);
             } catch (Exception e) {
                 logger.warn("Invalid JWT token: " + e.getMessage());
-                return;
             }
         }
 
@@ -50,7 +56,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             } else {
                 // Token is expired or invalid
                 logger.warn("JWT token failed validation for userId: " + userId);
-                return;
             }
         }
 

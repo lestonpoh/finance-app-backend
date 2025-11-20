@@ -23,17 +23,13 @@ public class IbkrClient {
     private String generateReportBaseUrl;
     @Value("${ibkr.urls.getReport}")
     private String getReportBaseUrl;
-    @Value("${ibkr.secrets.flexToken}")
-    private String flexToken;
-    @Value("${ibkr.secrets.flexQueryId}")
-    private String flexQueryId;
 
     private final WebClient webClient;
 
-    public String generateReport() {
+    public String generateReport(String queryId, String token) {
         String url = String.format(
-                "%s?v=3&t=%s&q=%s",
-                generateReportBaseUrl, flexToken, flexQueryId);
+                "%s?v=3&q=%s&t=%s",
+                generateReportBaseUrl, queryId, token);
 
         log.info("Requesting report from ibkr... ");
         String responseXml = webClient.get()
@@ -52,10 +48,10 @@ public class IbkrClient {
         }
     }
 
-    public FlexQueryResponseDTO getReport(String referenceCode) {
+    public FlexQueryResponseDTO getReport(String token, String referenceCode) {
         String url = String.format(
                 "%s?v=3&t=%s&q=%s",
-                getReportBaseUrl, flexToken, referenceCode);
+                getReportBaseUrl, token, referenceCode);
 
         String responseXml = webClient.get()
                 .uri(url)

@@ -16,3 +16,6 @@ ibkr:
 jwt:
   secret: secret
   expiration: 3600000
+
+crypto:
+  secret: secret
