@@ -42,9 +42,11 @@ public class IbkrClient {
             Unmarshaller unmarshaller = context.createUnmarshaller();
             FlexStatementResponseDTO response = (FlexStatementResponseDTO) unmarshaller
                     .unmarshal(new StringReader(responseXml));
+            log.info("report generated");
             return response.getReferenceCode();
         } catch (Exception e) {
-            throw new RuntimeException("Cannot parse xml response");
+            log.error(e.getMessage());
+            throw new RuntimeException("Cannot parse xml response after generating report");
         }
     }
 
@@ -64,7 +66,8 @@ public class IbkrClient {
             Unmarshaller unmarshaller = context.createUnmarshaller();
             return (FlexQueryResponseDTO) unmarshaller.unmarshal(new StringReader(responseXml));
         } catch (Exception e) {
-            throw new RuntimeException("Cannot parse xml response");
+            log.error(e.getMessage());
+            throw new RuntimeException("Cannot parse xml response from generated report");
         }
     }
 

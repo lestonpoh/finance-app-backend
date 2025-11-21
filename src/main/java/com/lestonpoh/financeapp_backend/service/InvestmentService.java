@@ -2,17 +2,21 @@ package com.lestonpoh.financeapp_backend.service;
 
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.lestonpoh.financeapp_backend.client.IbkrClient;
 import com.lestonpoh.financeapp_backend.mapper.ibkr.IbkrMapper;
 import com.lestonpoh.financeapp_backend.model.dao.UserAccounts;
 import com.lestonpoh.financeapp_backend.model.ibkr.IbkrInfoDTO;
 import com.lestonpoh.financeapp_backend.model.ibkr.IbkrReportDTO;
 import com.lestonpoh.financeapp_backend.repository.UserAccountsRepository;
+import com.lestonpoh.financeapp_backend.service.redis.CacheService;
 import com.lestonpoh.financeapp_backend.utility.CryptoUtil;
 import com.lestonpoh.financeapp_backend.utility.SecurityUtil;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class InvestmentService {
@@ -20,9 +24,23 @@ public class InvestmentService {
     private final IbkrMapper ibkrMapper;
     private final UserAccountsRepository userAccountsRepository;
     private final CryptoUtil cryptoUtil;
+    private final CacheService cacheService;
 
     public IbkrReportDTO getIbkrReport() {
-        UserAccounts userAccounts = userAccountsRepository.findByUserId(SecurityUtil.getCurrentUserId())
+        final String userId = SecurityUtil.getCurrentUserId();
+        final String cachekey = "ibkr";
+
+        // check if it exist in redis
+        IbkrReportDTO cachedInfo = cacheService.getCachedInfo(userId, cachekey, new TypeReference<IbkrReportDTO>() {
+        });
+        if (cachedInfo != null) {
+            log.info("retrieved info from redis");
+            return cachedInfo;
+        }
+
+        log.info("ibkr info does not exists in redis, fetching from api...");
+
+        UserAccounts userAccounts = userAccountsRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("No user_accounts found"));
 
         String token;
@@ -46,7 +64,12 @@ public class InvestmentService {
         }
 
         String referenceCode = ibkrClient.generateReport(queryId, token);
-        return ibkrMapper.toIbkrReportDTO(ibkrClient.getReport(token, referenceCode));
+        IbkrReportDTO response = ibkrMapper.toIbkrReportDTO(ibkrClient.getReport(token, referenceCode));
+
+        // cache to redis
+        cacheService.cacheInfo(userId, cachekey, response);
+
+        return response;
     }
 
     public void updateIbkrInfo(IbkrInfoDTO request) {

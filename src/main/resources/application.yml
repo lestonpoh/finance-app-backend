@@ -4,7 +4,9 @@ spring:
   data:
     mongodb:
       uri: ""
-
+    redis:
+      host: local
+      port: 6397
 ibkr:
   urls:
     generateReport: https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest
