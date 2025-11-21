@@ -9,7 +9,6 @@ import com.lestonpoh.financeapp_backend.model.dao.UserAccounts;
 import com.lestonpoh.financeapp_backend.model.ibkr.IbkrInfoDTO;
 import com.lestonpoh.financeapp_backend.model.ibkr.IbkrReportDTO;
 import com.lestonpoh.financeapp_backend.repository.UserAccountsRepository;
-import com.lestonpoh.financeapp_backend.service.redis.CacheService;
 import com.lestonpoh.financeapp_backend.utility.CryptoUtil;
 import com.lestonpoh.financeapp_backend.utility.SecurityUtil;
 
