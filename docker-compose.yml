@@ -1,0 +1,29 @@
+version: "1"
+
+services:
+  redis:
+    image: redis
+    container_name: finance_app_redis
+    ports:
+      - "6379:6379"
+
+  app:
+    image: finance_app
+    ports:
+      - "8081:8080" # springboot runs on port 8080 inside the container by default, setting server port to 8081 to still allow local testing
+    depends_on:
+      - redis
+    environment:
+      - MONGODB_URI: /run/secrets/mongodb_uri
+      - REDIS_HOST=redis
+      - REDIS_PORT=6397
+      - JWT_SECRET: /run/secrets/jwt_secret
+      - ENCRYPTION_SECRET: /run/secrets/encryption_secret
+
+secrets:
+  mongodb_uri:
+    file: ./secrets/mongodb_uri.txt
+  jwt_secret:
+    file: ./secrets/jwt_secret.txt
+  encryption_secret:
+    file: ./secrets/encryption_secret.txt

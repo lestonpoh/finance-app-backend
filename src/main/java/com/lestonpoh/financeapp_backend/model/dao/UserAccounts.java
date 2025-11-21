@@ -2,7 +2,6 @@ package com.lestonpoh.financeapp_backend.model.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.lestonpoh.financeapp_backend.model.ibkr.IbkrInfoDTO;

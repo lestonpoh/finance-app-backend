@@ -1,23 +1,17 @@
-spring:
-  profiles:
-    active: local
   data:
     mongodb:
-      uri: ""
+      uri: ${MONGODB_URI}
     redis:
-      host: local
-      port: 6397
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
 ibkr:
   urls:
     generateReport: https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest
     getReport: https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement
-  secrets:
-    flexToken: flexToken
-    flexQueryId: flexQueryId
 
 jwt:
-  secret: secret
+  secret: ${JWT_SECRET}
   expiration: 3600000
 
-crypto:
-  secret: secret
+encryption:
+  secret: ${ENCRYPTION_SECRET}
