@@ -1,14 +1,14 @@
-version: "3.8"
-
 services:
   redis:
     image: redis
     container_name: finance_app_redis
 
   backend:
-    image: lestonpoh/finance-app-backend:latest
+    image: lestonpoh/finance-app:latest
     container_name: finance_app_backend
     ports:
       - "8081:8080" # springboot runs on port 8080 inside the container by default, setting server port to 8081 to still allow local testing
     depends_on:
       - redis
+    env_file:
+      - .env

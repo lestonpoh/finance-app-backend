@@ -21,8 +21,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Set Git SHA tag
+        run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Compose Build
-        run: docker compose build
+        run: |
+          docker build \
+            -t lestonpoh/finance-app-backend:latest \
+            -t lestonpoh/finance-app-backend:${TAG} .
 
       - name: Compose Push
-        run: docker compose push
+      - name: Push backend image
+        run: docker push lestonpoh/finance-app-backend:latest lestonpoh/finance-app-backend:${TAG}
