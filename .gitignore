@@ -36,4 +36,4 @@ application-local.yml
 
 .env
 
-docker-compose-local.yml
+.DS_Store
