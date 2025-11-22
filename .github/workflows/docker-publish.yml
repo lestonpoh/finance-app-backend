@@ -24,13 +24,12 @@ jobs:
       - name: Set Git SHA tag
         run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
-      - name: Compose Build
+      - name: Build image
         run: |
           docker build \
             -t lestonpoh/finance-app-backend:latest \
             -t lestonpoh/finance-app-backend:${TAG} .
 
-      - name: Compose Push
       - name: Push backend image
         run: |
           docker push lestonpoh/finance-app-backend:latest lestonpoh/finance-app-backend:${TAG}
