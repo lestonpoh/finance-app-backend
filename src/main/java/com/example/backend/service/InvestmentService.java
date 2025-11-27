@@ -1,15 +1,15 @@
-package com.example.financeapp_backend.service;
+package com.example.backend.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.financeapp_backend.client.IbkrClient;
-import com.example.financeapp_backend.mapper.ibkr.IbkrMapper;
-import com.example.financeapp_backend.model.dao.UserAccounts;
-import com.example.financeapp_backend.model.ibkr.IbkrInfoDTO;
-import com.example.financeapp_backend.model.ibkr.IbkrReportDTO;
-import com.example.financeapp_backend.repository.UserAccountsRepository;
-import com.example.financeapp_backend.utility.CryptoUtil;
-import com.example.financeapp_backend.utility.SecurityUtil;
+import com.example.backend.client.IbkrClient;
+import com.example.backend.mapper.ibkr.IbkrMapper;
+import com.example.backend.model.dao.UserAccounts;
+import com.example.backend.model.ibkr.IbkrInfoDTO;
+import com.example.backend.model.ibkr.IbkrReportDTO;
+import com.example.backend.repository.UserAccountsRepository;
+import com.example.backend.utility.CryptoUtil;
+import com.example.backend.utility.SecurityUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import lombok.RequiredArgsConstructor;

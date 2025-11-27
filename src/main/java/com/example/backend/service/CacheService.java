@@ -1,11 +1,11 @@
-package com.example.financeapp_backend.service;
+package com.example.backend.service;
 
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import com.example.financeapp_backend.utility.CryptoUtil;
+import com.example.backend.utility.CryptoUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

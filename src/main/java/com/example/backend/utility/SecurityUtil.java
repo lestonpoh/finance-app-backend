@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.utility;
+package com.example.backend.utility;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +9,7 @@ public class SecurityUtil {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         if (auth == null || auth.getPrincipal() == null) {
+        
             return null;
         }
 

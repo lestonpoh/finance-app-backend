@@ -1,13 +1,13 @@
-package com.example.financeapp_backend.service;
+package com.example.backend.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.financeapp_backend.model.auth.LoginRequestDTO;
-import com.example.financeapp_backend.model.auth.RegisterRequestDTO;
-import com.example.financeapp_backend.model.dao.User;
-import com.example.financeapp_backend.repository.UserRepository;
-import com.example.financeapp_backend.utility.JwtUtil;
+import com.example.backend.model.auth.LoginRequestDTO;
+import com.example.backend.model.auth.RegisterRequestDTO;
+import com.example.backend.model.dao.User;
+import com.example.backend.repository.UserRepository;
+import com.example.backend.utility.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

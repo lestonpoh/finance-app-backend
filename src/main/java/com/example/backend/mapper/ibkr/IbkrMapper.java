@@ -1,15 +1,15 @@
-package com.example.financeapp_backend.mapper.ibkr;
+package com.example.backend.mapper.ibkr;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.example.financeapp_backend.model.ibkr.IbkrReportDTO;
-import com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse.CashReportCurrency;
-import com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse.FlexQueryResponseDTO;
-import com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse.OpenPosition;
-import com.example.financeapp_backend.utility.NumberUtil;
+import com.example.backend.model.ibkr.IbkrReportDTO;
+import com.example.backend.model.ibkr.getIbkrReportApiResponse.CashReportCurrency;
+import com.example.backend.model.ibkr.getIbkrReportApiResponse.FlexQueryResponseDTO;
+import com.example.backend.model.ibkr.getIbkrReportApiResponse.OpenPosition;
+import com.example.backend.utility.NumberUtil;
 
 import lombok.RequiredArgsConstructor;
 

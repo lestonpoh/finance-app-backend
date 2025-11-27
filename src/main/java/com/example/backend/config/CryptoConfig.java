@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.config;
+package com.example.backend.config;
 
 import java.util.Base64;
 

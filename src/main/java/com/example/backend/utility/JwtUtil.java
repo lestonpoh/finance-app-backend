@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.utility;
+package com.example.backend.utility;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;

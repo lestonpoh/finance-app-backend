@@ -1,10 +1,10 @@
-package com.example.financeapp_backend.model.dao;
+package com.example.backend.model.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.example.financeapp_backend.model.ibkr.IbkrInfoDTO;
+import com.example.backend.model.ibkr.IbkrInfoDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

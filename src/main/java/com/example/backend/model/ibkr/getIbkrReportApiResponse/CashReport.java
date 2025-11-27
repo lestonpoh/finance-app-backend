@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse;
+package com.example.backend.model.ibkr.getIbkrReportApiResponse;
 
 import java.util.List;
 

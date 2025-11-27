@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.model.dao;
+package com.example.backend.model.dao;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

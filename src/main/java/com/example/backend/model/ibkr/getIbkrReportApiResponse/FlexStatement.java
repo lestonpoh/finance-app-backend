@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse;
+package com.example.backend.model.ibkr.getIbkrReportApiResponse;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

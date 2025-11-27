@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.model.ibkr;
+package com.example.backend.model.ibkr;
 
 import java.util.List;
 

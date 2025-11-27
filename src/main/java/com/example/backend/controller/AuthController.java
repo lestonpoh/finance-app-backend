@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.controller;
+package com.example.backend.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.financeapp_backend.model.auth.LoginRequestDTO;
-import com.example.financeapp_backend.model.auth.RegisterRequestDTO;
-import com.example.financeapp_backend.service.AuthService;
+import com.example.backend.model.auth.LoginRequestDTO;
+import com.example.backend.model.auth.RegisterRequestDTO;
+import com.example.backend.service.AuthService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

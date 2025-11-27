@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.mapper.auth;
+package com.example.backend.mapper.auth;
 
 // import com.lestonpoh.financeapp_backend.model.auth.RegisterRequestDTO;
 // import com.lestonpoh.financeapp_backend.model.dao.User;

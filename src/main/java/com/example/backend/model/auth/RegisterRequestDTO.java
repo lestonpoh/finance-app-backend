@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.model.auth;
+package com.example.backend.model.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.config;
+package com.example.backend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

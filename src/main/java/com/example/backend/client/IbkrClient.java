@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.client;
+package com.example.backend.client;
 
 import java.io.StringReader;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.example.financeapp_backend.model.ibkr.generateIbkrApiResponse.FlexStatementResponseDTO;
-import com.example.financeapp_backend.model.ibkr.getIbkrReportApiResponse.FlexQueryResponseDTO;
+import com.example.backend.model.ibkr.generateIbkrApiResponse.FlexStatementResponseDTO;
+import com.example.backend.model.ibkr.getIbkrReportApiResponse.FlexQueryResponseDTO;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Unmarshaller;

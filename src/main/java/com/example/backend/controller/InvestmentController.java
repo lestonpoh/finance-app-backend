@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.controller;
+package com.example.backend.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.financeapp_backend.model.ibkr.IbkrInfoDTO;
-import com.example.financeapp_backend.model.ibkr.IbkrReportDTO;
-import com.example.financeapp_backend.service.InvestmentService;
+import com.example.backend.model.ibkr.IbkrInfoDTO;
+import com.example.backend.model.ibkr.IbkrReportDTO;
+import com.example.backend.service.InvestmentService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

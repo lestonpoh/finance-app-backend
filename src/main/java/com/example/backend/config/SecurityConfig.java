@@ -1,4 +1,4 @@
-package com.example.financeapp_backend.config;
+package com.example.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.financeapp_backend.utility.JwtAuthenticationFilter;
+import com.example.backend.utility.JwtAuthenticationFilter;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
