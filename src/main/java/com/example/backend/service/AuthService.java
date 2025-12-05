@@ -44,7 +44,6 @@ public class AuthService {
     public String login(LoginRequestDTO request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email"));
-        log.info(user.getPassword());
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
 
             throw new RuntimeException("Invalid email or password");

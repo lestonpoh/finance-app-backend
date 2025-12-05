@@ -22,12 +22,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
 
-    // @Override
-    // protected boolean shouldNotFilter(HttpServletRequest request) {
-    // String path = request.getRequestURI();
-    // return path.equals("/api/v1/auth/login") ||
-    // path.equals("/api/v1/auth/register");
-    // }
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getRequestURI();
+        return path.startsWith("/api/v1/user/"); // skip JWT for internal service endpoints
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

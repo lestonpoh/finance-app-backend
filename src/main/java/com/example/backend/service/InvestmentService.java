@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class InvestmentService {
     private final IbkrClient ibkrClient;
-    private final IbkrMapper ibkrMapper;
     private final UserAccountsRepository userAccountsRepository;
     private final CryptoUtil cryptoUtil;
     private final CacheService cacheService;
@@ -63,7 +62,7 @@ public class InvestmentService {
         }
 
         String referenceCode = ibkrClient.generateReport(queryId, token);
-        IbkrReportDTO response = ibkrMapper.toIbkrReportDTO(ibkrClient.getReport(token, referenceCode));
+        IbkrReportDTO response = IbkrMapper.toIbkrReportDTO(ibkrClient.getReport(token, referenceCode));
 
         // cache to redis
         cacheService.cacheInfo(userId, cachekey, response);

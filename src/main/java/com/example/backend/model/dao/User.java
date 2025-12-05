@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @AllArgsConstructor
-@Document(collection = "users")
+@Document(collection = "user")
 public class User {
     @Id
     private String id;
@@ -21,4 +21,7 @@ public class User {
     private String email;
     private String password;
     private String username;
+    @Indexed(unique = true)
+    private Long telegramId;
+
 }

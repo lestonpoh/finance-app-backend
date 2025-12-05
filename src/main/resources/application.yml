@@ -1,18 +1,21 @@
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URI}
+      uri: uri
 redis:
-  host: ${REDIS_HOST}
-  port: ${REDIS_PORT}
+  host: host
+  port: port
 ibkr:
   urls:
     generateReport: https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/SendRequest
     getReport: https://ndcdyn.interactivebrokers.com/AccountManagement/FlexWebService/GetStatement
 
 jwt:
-  secret: ${JWT_SECRET}
+  secret: secret
   expiration: 3600000
 
 encryption:
-  secret: ${ENCRYPTION_SECRET}
+  secret: secret
+
+internal:
+  secret: super-secret-123

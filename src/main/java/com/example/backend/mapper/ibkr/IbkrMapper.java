@@ -11,14 +11,10 @@ import com.example.backend.model.ibkr.getIbkrReportApiResponse.FlexQueryResponse
 import com.example.backend.model.ibkr.getIbkrReportApiResponse.OpenPosition;
 import com.example.backend.utility.NumberUtil;
 
-import lombok.RequiredArgsConstructor;
-
 @Component
-@RequiredArgsConstructor
 public class IbkrMapper {
-    private final NumberUtil numberUtil;
 
-    public IbkrReportDTO toIbkrReportDTO(FlexQueryResponseDTO flexQueryResponse) {
+    public static IbkrReportDTO toIbkrReportDTO(FlexQueryResponseDTO flexQueryResponse) {
         IbkrReportDTO ibkrReportDTO = new IbkrReportDTO();
 
         // map cash positions
@@ -27,7 +23,7 @@ public class IbkrMapper {
                 .getFlexStatement()
                 .getCashReport()
                 .getCashReportCurrencyList()) {
-            float value = numberUtil.roundToDp(Float.parseFloat(c.getSlbNetCash()), 2);
+            float value = NumberUtil.roundToDp(Float.parseFloat(c.getSlbNetCash()), 2);
 
             if ("BASE_SUMMARY".equals(c.getCurrency())) {
                 ibkrReportDTO.setTotalCashSgd(value);
@@ -51,18 +47,18 @@ public class IbkrMapper {
             position.setCurrency(p.getCurrency());
             position.setSymbol(p.getSymbol());
             position.setDescription(p.getDescription());
-            position.setPosition(numberUtil.roundToDp(Float.parseFloat(p.getPosition()), 2));
-            position.setPositionValue(numberUtil.roundToDp(Float.parseFloat(p.getPositionValue()), 2));
-            position.setPositionValueSGD(numberUtil
+            position.setPosition(NumberUtil.roundToDp(Float.parseFloat(p.getPosition()), 2));
+            position.setPositionValue(NumberUtil.roundToDp(Float.parseFloat(p.getPositionValue()), 2));
+            position.setPositionValueSGD(NumberUtil
                     .roundToDp(Float.parseFloat(p.getPositionValue()) * Float.parseFloat(p.getFxRateToBase()), 2));
-            position.setCostPrice(numberUtil.roundToDp(Float.parseFloat(p.getCostBasisPrice()), 2));
-            position.setCurrentPrice(numberUtil.roundToDp(Float.parseFloat(p.getMarkPrice()), 2));
-            position.setUnrealizedGains(numberUtil.roundToDp(Float.parseFloat(p.getFifoPnlUnrealized()), 2));
+            position.setCostPrice(NumberUtil.roundToDp(Float.parseFloat(p.getCostBasisPrice()), 2));
+            position.setCurrentPrice(NumberUtil.roundToDp(Float.parseFloat(p.getMarkPrice()), 2));
+            position.setUnrealizedGains(NumberUtil.roundToDp(Float.parseFloat(p.getFifoPnlUnrealized()), 2));
 
             float percent = Float.parseFloat(p.getCostBasisPrice()) == 0 ? 0
                     : (Float.parseFloat(p.getMarkPrice())
                             - Float.parseFloat(p.getCostBasisPrice()) / Float.parseFloat(p.getCostBasisPrice()) * 100);
-            position.setUnrealizedGainsPercent(numberUtil.roundToDp(percent, 2));
+            position.setUnrealizedGainsPercent(NumberUtil.roundToDp(percent, 2));
             positionList.add(position);
         }
 

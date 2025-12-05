@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class InvestmentController {
     private final InvestmentService investmentService;
 
-    @GetMapping(value = "/ibkr")
+    @GetMapping("/ibkr")
     public ResponseEntity<IbkrReportDTO> getIbkrReport() {
         return ResponseEntity.ok(investmentService.getIbkrReport());
     }
